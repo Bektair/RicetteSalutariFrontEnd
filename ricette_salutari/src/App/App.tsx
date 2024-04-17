@@ -8,6 +8,7 @@ import Register from '../Auth/Register';
 import Home from '../Home/Home';
 import NotFound from '../Auth/NotFound';
 import ProtectedRoute from '../Routing/ProtectedRoute';
+import RecipePicker from '../IngredientPicker/RecipePicker';
 
 //Passing down props to all the children of the provider
 export const ThemeContext = React.createContext('true')
@@ -44,6 +45,13 @@ export default function App() {
          <Route path="/logout" element={<Logout />}/>
          <Route path="/register" element={<RegisterAndLogout />}/>
          <Route path="*" element={<NotFound/>}/>
+         <Route path="/recipe_picker"
+           element={
+             <ProtectedRoute>
+               <RecipePicker/>
+             </ProtectedRoute>
+           }
+         />
        </Routes>
      </BrowserRouter>
   );
